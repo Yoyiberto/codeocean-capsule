@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+set -ex
+
+# Debug information
+echo "Starting run script"
+echo "Current directory: $(pwd)"
+echo "Listing directories:"
+ls -la
+
+# Run the main Python script
+python code/main.py
+
+# Print completion message
+echo "Run script completed successfully" 
