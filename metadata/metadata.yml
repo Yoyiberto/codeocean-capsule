@@ -1,0 +1,12 @@
+title: "Simple Python Script for Code Ocean"
+description: "A simple Python script demonstrating how to create a Code Ocean capsule"
+authors:
+  - name: "Your Name"
+    affiliation: "Your Institution"
+language: python
+license: MIT
+keywords:
+  - python
+  - code ocean
+  - docker
+  - reproducible research 
