@@ -18,8 +18,8 @@ RUN apt-get update && apt-get install -y \
 RUN ln -s /usr/bin/python3 /usr/bin/python || true
 RUN ln -s /usr/bin/pip3 /usr/bin/pip || true
 
-# Copy requirements file
-COPY requirements.txt .
+# Copy requirements file from the environment directory
+COPY environment/requirements.txt .
 
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
@@ -32,9 +32,8 @@ ENV PYTHONDONTWRITEBYTECODE=1
 # But we'll create them just in case for local testing
 RUN mkdir -p /data /results
 
-# Set permissions for the run script
-COPY run /code/
-RUN chmod +x /code/run
+# Note: Code Ocean expects the run script to be in the code directory
+# and will automatically use it - we don't need to copy it here
 
-# Default command (Code Ocean will use the run script)
+# Default command (Code Ocean will use the run script from the code directory)
 CMD ["/bin/bash"] 
