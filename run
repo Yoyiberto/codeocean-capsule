@@ -7,8 +7,21 @@ echo "Current directory: $(pwd)"
 echo "Listing directories:"
 ls -la
 
-# Run the main Python script
-python code/main.py
+# In Code Ocean, the code is mounted at /code
+# and the current directory is already /code
+# So we need to adjust our path to the Python script
+
+# Check if main.py exists in the current directory or in the code subdirectory
+if [ -f "main.py" ]; then
+    echo "Running main.py from current directory"
+    python main.py
+elif [ -f "code/main.py" ]; then
+    echo "Running main.py from code subdirectory"
+    python code/main.py
+else
+    echo "Error: main.py not found"
+    exit 1
+fi
 
 # Print completion message
 echo "Run script completed successfully" 
